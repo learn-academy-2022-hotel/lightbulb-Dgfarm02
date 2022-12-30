@@ -1,27 +1,29 @@
 import React, { useState } from "react"
-
+import lightOff from '../assets/lightOff.png'
+import lightOn from '../assets/lightOn.png'
+import switchOff from '../assets/switchOff.png'
+import switchOn from '../assets/switchOn.png'
 
 const LightSwitch = () => {
-  const [lightSwitchStatus, setLightSwitchStatus] = useState("off")
-  const [backgroundColor, setBackgroundColor] = useState("white")
+  const images = [ 
+    lightOff, 
+    lightOn, 
+    switchOff, 
+    switchOn
+  ]
+  const [lightSwitchStatus, setLightSwitchStatus] = useState(switchOff)
+  const [lightStatus, setLightStatus] = useState(lightOff)
   const handleClick = () => {
-    setLightSwitchStatus(lightSwitchStatus === "off" ? "on" : "off")
-    setBackgroundColor(backgroundColor === "white" ? "yellow" : "white")
-    // if (lightSwitchStatus === "off") {
-    //   setLightSwitchStatus = "on"
-    // if (lightSwitchStatus === "on") {
-    //   setLightSwitchStatus = "off"
-    // }
-    // }
+    setLightSwitchStatus(lightSwitchStatus === switchOff ? switchOn : switchOff)
+    setLightStatus(lightStatus === lightOff ? lightOn : lightOff)
   }
   return (
     <>
-      <div 
-      className="lightbulb"
-      onClick={handleClick}
-      style={{ backgroundColor: backgroundColor}}
-      >{lightSwitchStatus}
+      <div className="layout">
+      <img src={lightSwitchStatus} onClick={handleClick}></img>
+      <img src={lightStatus}></img>
       </div>
+      <br />
     </>
   )
 }

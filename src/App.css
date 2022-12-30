@@ -2,8 +2,9 @@ h1 {
   text-align: center;
 }
 
-.lightbulb {
-  border: 2px solid black;
+.layout {
+  display: flex;
   width: 200px;
   height: 200px;
+  justify-content: left;
 }
